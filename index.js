@@ -7,7 +7,7 @@ const blogRouter = require("./src/routes/BlogRoutes");
 
 //configure mongoose
 mongoose
-    .connect(process.env.DB_URI || "mongodb://localhost/antec", {
+    .connect(process.env.DB_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
