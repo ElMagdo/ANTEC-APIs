@@ -23,7 +23,7 @@ router.delete('/lecturer/:matricule', (req, res) => Lecturers.deleteLecturer(req
 /* Course endpoints */
 router.get('/courses', (req, res) => Courses.getAllCourses(req, res));
 router.get('/course/:code', (req, res) => Courses.getCourseById(req, res));
-router.post('/course', (req, res) => Courses.addCourse(req, res));
+router.post('/course', (req, res) => Courses.createCourse(req, res));
 router.put('/course/:code', (req, res) => Courses.updateCourse(req, res));
 router.delete('/course/:code', (req, res) => Courses.deleteCourse(req, res));
 
