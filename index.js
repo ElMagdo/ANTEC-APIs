@@ -21,12 +21,15 @@ mongoose
 
 app.use(express.json());
 
+app.use("/attendance", router);
 // simple route
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to ANTEC application." });
 });
 
-app.use("/attendance", router);
+app.get("/attendance", (req, res) => {
+    res.json({ message: "Attendance API hosted on Vercel." });
+});
 
 app.listen(3000, () => {
     console.log("Server is running on port 3000");
