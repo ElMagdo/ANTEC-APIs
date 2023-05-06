@@ -8,13 +8,13 @@ exports.createStudent = async(student) => {
     return await studentModel.create(student);
 };
 exports.getStudentById = async(id) => {
-    return await studentModel.findById(id);
+    return await studentModel.findOne({ matricule: id });
 };
 
 exports.updateStudent = async(id, student) => {
-    return await studentModel.findByIdAndUpdate(id, student);
+    return await studentModel.findOneAndUpdate({ matricule: id }, student);
 };
 
 exports.deleteStudent = async(id) => {
-    return await studentModel.findByIdAndDelete(id);
+    return await studentModel.findOneAndDelete({ matricule: id });
 };

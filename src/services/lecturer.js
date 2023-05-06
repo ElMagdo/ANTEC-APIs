@@ -7,6 +7,7 @@ exports.getAllLecturers = async() => {
 exports.createLecturer = async(lecturer) => {
     return await lecturerModel.create(lecturer);
 };
+
 exports.getLecturerById = async(id) => {
     return await lecturerModel.findById(id);
 };
