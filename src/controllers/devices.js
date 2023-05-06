@@ -48,7 +48,7 @@ exports.deviceLogin = async(req, res) => {
         }
         if (device) {
             token = device.generateJwt();
-            res.status(200).json({ token });
+            res.status(200).json({ "token": token, "message": "success" });
         } else {
             res.status(401).json(info);
         }

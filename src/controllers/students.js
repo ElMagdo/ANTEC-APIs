@@ -39,7 +39,7 @@ exports.login = async(req, res) => {
         }
         if (student) {
             token = student.generateJwt();
-            res.status(200).json({ token });
+            res.status(200).json({ "token": token, "message": "success" });
         } else {
             res.status(401).json(info);
         }

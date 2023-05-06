@@ -50,25 +50,7 @@ exports.adminLogin = async(req, res) => {
         }
         if (admin) {
             token = admin.generateJwt();
-            res.status(200).json({ token });
-        } else {
-            res.status(401).json(info);
-        }
-    })(req, res);
-};
-
-exports.deviceLogin = async(req, res) => {
-    if (!req.body.name || !req.body.password) {
-        return res.status(400).json({ "message": "All fields are required" });
-    }
-    passport.authenticate('authDevice', (err, device, info) => {
-        let token;
-        if (err) {
-            return res.status(404).json({ error: err.message });
-        }
-        if (device) {
-            token = device.generateJwt();
-            res.status(200).json({ token });
+            res.status(200).json({ "token": token, "message": "success" });
         } else {
             res.status(401).json(info);
         }
