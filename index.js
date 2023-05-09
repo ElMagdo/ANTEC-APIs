@@ -36,11 +36,15 @@ app.use((err, req, res, next) => {
     }
 });
 
+let ALLOWED_ORIGINS = ["http://serverabc.com", "http://localhost:4200"];
 app.use('/attendance', (req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-   next();
-   });
+    let origin = req.headers.origin;
+    let theOrigin = (ALLOWED_ORIGINS.indexOf(origin) >= 0) ? origin : ALLOWED_ORIGINS[0];
+    res.header("Access-Control-Allow-Origin", theOrigin);
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
+    next();
+});
 
 app.use("/attendance", router);
 // simple route
