@@ -36,6 +36,12 @@ app.use((err, req, res, next) => {
     }
 });
 
+app.use('/attendance', (req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+   next();
+   });
+
 app.use("/attendance", router);
 // simple route
 app.get("/", (req, res) => {
