@@ -4,12 +4,12 @@ const router = require("./src/routes/route");
 require('dotenv').config();
 const passport = require("passport");
 const mongoose = require("mongoose");
-var { expressjwt: jwt } = require('express-jwt');
+/*var { expressjwt: jwt } = require('express-jwt');
 var auth = jwt({
     secret: process.env.JWT_SECRET,
     userProperty: 'payload',
     algorithms: ["HS256"]
-});
+});*/
 //configure mongoose
 mongoose
     .connect(process.env.DB_URI, {
