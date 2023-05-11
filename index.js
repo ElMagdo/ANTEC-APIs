@@ -41,6 +41,7 @@ app.use('/attendance', (req, res, next) => {
     let origin = req.headers.origin;
     let theOrigin = (ALLOWED_ORIGINS.indexOf(origin) >= 0) ? origin : ALLOWED_ORIGINS[0];
     res.header("Access-Control-Allow-Origin", theOrigin);
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
     next();
