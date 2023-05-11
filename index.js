@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const router = require("./src/routes/route");
 require('dotenv').config();
 const passport = require("passport");
@@ -26,6 +27,7 @@ mongoose
 
 require("./src/passport");
 
+app.use(cors());
 app.use(express.json());
 app.use(passport.initialize());
 
@@ -36,7 +38,7 @@ app.use((err, req, res, next) => {
     }
 });
 
-let ALLOWED_ORIGINS = ["http://serverabc.com", "http://localhost:4200"];
+/*let ALLOWED_ORIGINS = ["http://serverabc.com", "http://localhost:4200"];
 app.use('/attendance', (req, res, next) => {
     let origin = req.headers.origin;
     let theOrigin = (ALLOWED_ORIGINS.indexOf(origin) >= 0) ? origin : ALLOWED_ORIGINS[0];
@@ -45,7 +47,7 @@ app.use('/attendance', (req, res, next) => {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
     next();
-});
+});*/
 
 app.use("/attendance", router);
 // simple route
